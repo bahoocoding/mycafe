@@ -7,5 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "lodash.isempty": "^4.4.0",
+    "shortid": "^2.2.16",
+    "validator": "^13.6.0"
+  }
 }
