@@ -5,11 +5,13 @@ const bodyParser =require("body-parser");
 const express=require("express");
 
 const menuRoute=require("./routes/menuRoute");
+const userRoute=require("./routes/userRoute");
+const configRoute=require("./routes/configRoute");
 const app=express();
 const PORT=5000;
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json({limit: '10mb'}));
+app.use(bodyParser.urlencoded({limit: '10mb',extended: true}));
 app.use(cors({origin: "*",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true}));
@@ -20,6 +22,8 @@ app.use(function(req, res, next) {
 });
 
 app.use("/menus", menuRoute);
+app.use("/users", userRoute);
+app.use("/configs", configRoute);
 app.get("/", (req, res)=>{
     res.send("hello world");
 
